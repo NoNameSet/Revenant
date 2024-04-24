@@ -25,4 +25,4 @@ W.I.P
 #### Major Contributors
 
 - [alexguirre](https://github.com/alexguirre) - Assisting with memory related files and classes.
-- [Parik27](https://github.com/Parik27) - For V.Rainbomizer and teaching me more about C/C++. See the license <a href="https://github.com/nonameset/Revenant/blob/master/LICENSE">here</a>
+- [Parik27](https://github.com/Parik27) - For V.Rainbomizer and teaching me more about C/C++. See the license <a href="https://github.com/nonameset/Revenant/blob/master/LICENSE">here</a>.
