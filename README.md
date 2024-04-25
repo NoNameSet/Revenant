@@ -20,7 +20,7 @@ W.I.P
 
 #### Lead Developers
 
-- [nonameset](https://github.com/nonameset) - Creation and implementation of the modification.
+- [nonameset](https://github.com/nonameset) - Creation and implementation of the ASI.
 
 #### Major Contributors
 
