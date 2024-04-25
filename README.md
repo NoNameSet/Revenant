@@ -1,4 +1,4 @@
-[![Discord](https://img.shields.io/discord/994950582731292693.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/kcD5V3XZbg)
+![Discord Shield](https://discordapp.com/api/guilds/994950582731292693/widget.png?style=shield)
 
 # Revenant 🧟
 
