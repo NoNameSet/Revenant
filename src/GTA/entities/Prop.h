@@ -9,6 +9,7 @@ namespace revenant
 {
     class Prop : public Entity
     {
+    public:
         Prop(const std::string& modelName, Vector3 position);
 
         void PlaceOnGroundProperly();
