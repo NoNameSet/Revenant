@@ -1,3 +1,4 @@
+#include <GTA.UI/Screen.h>
 #include "PlayerController.h"
 
 namespace revenant
@@ -10,30 +11,22 @@ namespace revenant
     void PlayerController::Initialize()
     {
         m_Initialized = true;
-        m_PlayerState = PST_Normal;
+        m_PlayerState = PST_Survivor;
         m_DefaultModel = ENTITY::GET_ENTITY_MODEL(PLAYER::PLAYER_PED_ID());
     }
 
     void PlayerController::Destroy()
     {
         m_PlayerState = PST_Normal;
-
         PLAYER::SET_PLAYER_MODEL(PLAYER::PLAYER_ID(), m_DefaultModel.GetModelHash());
     }
 
     void PlayerController::Tick()
     {
-        if (m_PlayerState == PST_Normal)
-            return;
-
-        
     }
 
     void PlayerController::SetPlayerState(PLAYER_STATE_TYPE stateType)
     {
-        if (m_PlayerState == stateType)
-            return;
-
         switch (stateType)
         {
             case PST_Normal:

@@ -24,12 +24,10 @@ namespace revenant
         void Initialize() override;
         void Destroy() override;
         void Tick() override;
-
         void SetPlayerState(PLAYER_STATE_TYPE stateType);
 
     public:
         PLAYER_STATE_TYPE m_PlayerState = PST_Normal;
-
     private:
         bool m_Initialized {};
         Model m_DefaultModel = ENTITY::GET_ENTITY_MODEL(PLAYER::PLAYER_PED_ID());
