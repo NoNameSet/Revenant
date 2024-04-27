@@ -78,7 +78,7 @@ namespace revenant
         return ENTITY::HAS_ENTITY_COLLIDED_WITH_ANYTHING(this->handle);
     }
 
-    bool Entity::IsPersistent() const
+    bool Entity::IsMissionEntity() const
     {
         return ENTITY::IS_ENTITY_A_MISSION_ENTITY(this->handle);
     }
@@ -404,5 +404,10 @@ namespace revenant
     void Entity::SetCollisionIgnoredEntity(const Entity &entity) const
     {
         ENTITY::SET_ENTITY_NO_COLLISION_ENTITY(this->handle, entity.GetHandle(), false);
+    }
+
+    void Entity::Delete()
+    {
+        ENTITY::DELETE_ENTITY(&this->handle);
     }
 }

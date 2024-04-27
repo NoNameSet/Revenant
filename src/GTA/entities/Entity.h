@@ -29,7 +29,7 @@ namespace revenant
         [[nodiscard]] bool CanSee(const Entity& entity, LOS_FLAGS flags) const;
         [[nodiscard]] bool CanSee(Entity& entity) const;
         [[nodiscard]] bool HasCollidedWithAnything() const;
-        [[nodiscard]] bool IsPersistent() const;
+        [[nodiscard]] bool IsMissionEntity() const;
         [[nodiscard]] bool IsAttached() const;
         [[nodiscard]] bool IsAttachedToAnyObject() const;
         [[nodiscard]] bool IsAttachedToAnyPed() const;
@@ -100,6 +100,7 @@ namespace revenant
         void SetVelocity(const Vector3& value) const;
         void SetOpacity(int value) const;
         void SetCollisionIgnoredEntity(const Entity& entity) const;
+        void Delete();
     protected:
         int32_t handle;
     };
