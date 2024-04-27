@@ -31,6 +31,7 @@ void OnScriptInit()
 
     g_ScriptManager.reset();
     g_PickupController.reset();
+    g_PlayerController.reset();
 
     g_Logger->Info("Revenant has been terminated.");
     g_Logger.reset();
@@ -46,7 +47,6 @@ bool __stdcall DllMain(HINSTANCE hInstance, DWORD reason, LPVOID reserved)
             scriptRegister(hInstance, OnScriptInit);
             break;
         case DLL_PROCESS_DETACH:
-            g_Running = false;
             scriptUnregister(hInstance);
             break;
     }
