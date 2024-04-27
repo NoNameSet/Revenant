@@ -11,6 +11,7 @@ namespace revenant
     {
     public:
         Vehicle(const std::string& modelName, Vector3 position, float heading);
+        Vehicle(int32_t handle);
 
         bool IsStuckOnRoof();
         bool IsStopped();

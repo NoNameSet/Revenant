@@ -2,9 +2,13 @@
 
 namespace revenant
 {
-    Vehicle::Vehicle(const std::string& modelName, Vector3 position, float heading)
+    Vehicle::Vehicle(const std::string& modelName, Vector3 position, float heading) : Vehicle(NULL)
     {
-        VEHICLE::CREATE_VEHICLE(MISC::GET_HASH_KEY(modelName.c_str()), position.x, position.y, position.z, heading, false, false, true);
+        this->handle = VEHICLE::CREATE_VEHICLE(MISC::GET_HASH_KEY(modelName.c_str()), position.x, position.y, position.z, heading, false, false, true);
+    }
+
+    Vehicle::Vehicle(int32_t handle) : Entity(handle)
+    {
     }
 
     bool Vehicle::IsStuckOnRoof()
