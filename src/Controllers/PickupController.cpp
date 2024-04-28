@@ -17,7 +17,8 @@ namespace revenant
     {
         for (auto&& prop : m_Pickups)
         {
-            prop.Delete();
+            if (prop.IsValid())
+                prop.Delete();
         }
     }
 
@@ -36,7 +37,7 @@ namespace revenant
             {
                 m_LastPickupCreatedAt = currentTime;
 
-                
+
             }
         }
     }
