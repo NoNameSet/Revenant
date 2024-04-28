@@ -37,7 +37,8 @@ namespace revenant
             {
                 m_LastPickupCreatedAt = currentTime;
 
-
+//                Vector3 position = ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), false).Around(5.0f);
+//                Prop prop = Prop("", position);
             }
         }
     }

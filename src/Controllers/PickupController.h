@@ -23,7 +23,7 @@ namespace revenant
         int m_LastPickupCreatedAt = MISC::GET_GAME_TIMER();
         int m_LastUpdateAt = MISC::GET_GAME_TIMER();
         std::vector<Prop> m_Pickups;
-        const int MAX_PICKUP_COUNT = 3;
+        const int MAX_PICKUP_COUNT = 1;
     };
 
     inline std::shared_ptr<PickupController> g_PickupController;
