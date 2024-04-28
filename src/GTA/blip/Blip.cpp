@@ -1,4 +1,5 @@
 #include "Blip.h"
+#include "../entities/Entity.h"
 
 namespace revenant
 {

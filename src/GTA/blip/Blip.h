@@ -3,10 +3,10 @@
 
 #pragma once
 
-#include "../entities/Entity.h"
-
 namespace revenant
 {
+    class Entity;
+
     class Blip
     {
     public:
