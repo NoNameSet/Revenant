@@ -24,7 +24,7 @@ namespace revenant
         int m_LastUpdateAt = MISC::GET_GAME_TIMER();
         std::vector<Prop> m_Pickups;
         const int MAX_PICKUP_COUNT = 1;
-        const float PICKUP_DISPOSE_DISTANCE = 200.0f;
+        const float PICKUP_DISPOSE_DISTANCE = 10.0f;
         const float PICKUP_COLLECT_DISTANCE = 1.2f;
     };
 
