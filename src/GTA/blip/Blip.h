@@ -57,7 +57,7 @@ namespace revenant
         void ShowTick(bool toggle) const;
         void ShowHeadingIndicator(bool toggle) const;
         void ShowOutlineIndicator(bool toggle) const;
-        void ShowCone(bool toggle, HUD_COLOURS color) const;
+        void ShowCone(bool toggle, HUD_COLOURS color = HUD_COLOUR_BLUEDARK) const;
         void Delete();
     private:
         int32_t handle;
