@@ -5,6 +5,7 @@ class fwScriptGuid
 {
 public:
     static uintptr_t GetBaseFromGuid(int32_t guid);
+    static uint32_t CreateGuid(uint64_t* base);
 
     static void InitialisePatterns();
 };
