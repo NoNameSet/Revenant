@@ -1,5 +1,7 @@
 #include "PickupController.h"
 #include "PlayerController.h"
+#include "../GTA.UI/Screen.h"
+#include "../GTA/entities/Player.h"
 
 namespace revenant
 {
@@ -33,12 +35,17 @@ namespace revenant
         {
             m_LastUpdateAt = currentTime + 1000;
 
+            for (auto&& prop : m_Pickups)
+            {
+                if (prop.IsValid())
+                {
+                    float distance = prop.GetPosition().Distance(Player::GetCharacter()->GetPosition());
+                }
+            }
+
             if (m_Pickups.size() < MAX_PICKUP_COUNT && (currentTime - m_LastPickupCreatedAt) >= 5000)
             {
                 m_LastPickupCreatedAt = currentTime;
-
-//                Vector3 position = ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), false).Around(5.0f);
-//                Prop prop = Prop("", position);
             }
         }
     }
