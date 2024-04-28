@@ -311,6 +311,11 @@ namespace revenant
         return std::make_unique<Model>(ENTITY::GET_ENTITY_MODEL(this->handle));
     }
 
+    std::unique_ptr<Blip> Entity::GetBlip() const
+    {
+        return std::make_unique<Blip>(HUD::GET_BLIP_FROM_ENTITY(this->handle));
+    }
+
     uintptr_t Entity::GetMemoryAddress() const
     {
         return fwScriptGuid::GetBaseFromGuid(this->handle);

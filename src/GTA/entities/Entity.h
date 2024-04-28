@@ -4,6 +4,7 @@
 #pragma once
 
 #include "Model.h"
+#include "../blip/Blip.h"
 
 namespace revenant
 {
@@ -79,6 +80,7 @@ namespace revenant
         [[nodiscard]] ENTITY_TYPE GetType() const;
 
         [[nodiscard]] std::unique_ptr<Model> GetModel() const;
+        [[nodiscard]] std::unique_ptr<Blip> GetBlip() const;
 
         [[nodiscard]] uintptr_t GetMemoryAddress() const;
 
