@@ -29,7 +29,7 @@ namespace revenant
         [[nodiscard]] bool IsPed() const;
         [[nodiscard]] bool IsVehicle() const;
 
-        uint32_t GetModelHash();
+        [[nodiscard]] uint32_t GetModelHash() const;
 
         void Dispose() const;
 

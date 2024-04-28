@@ -97,7 +97,7 @@ namespace revenant
         return STREAMING::IS_MODEL_A_VEHICLE(this->modelHash);
     }
 
-    uint32_t Model::GetModelHash()
+    uint32_t Model::GetModelHash() const
     {
         return this->modelHash;
     }
