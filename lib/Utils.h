@@ -30,6 +30,7 @@ float        RandomFloat (float min, float max);
 float        RandomFloat (float max);
 unsigned int RandomWeighed (const std::vector<double> &weights);
 bool         RandomBool (float Odds, float Precision = 1.0f);
+double       RandomDouble(double min, double max);
 
 void InitialiseAllComponents ();
 

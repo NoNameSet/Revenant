@@ -75,6 +75,13 @@ RandomBool (float Odds, float Precision)
     return RandomFloat (100.0f * Precision) < (Odds * Precision);
 }
 
+double
+RandomDouble(double min, double max)
+{
+    std::uniform_real_distribution<double> dist{min, max};
+    return dist (RandEngine ());
+}
+
 /*******************************************************/
 void
 MakeJMP64 (injector::memory_pointer_tr at, injector::memory_pointer_raw dest)
