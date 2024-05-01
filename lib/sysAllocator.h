@@ -8,19 +8,18 @@ namespace rage
     class sysMemAllocator
     {
     public:
-        DEFINE_RAGE_RTTI(rage::sysMemAllocator);
-
-        virtual void SetQuitOnFail(bool) = 0;
-        virtual void *Allocate(std::size_t size, std::size_t align, int subAllocator) = 0;
-        virtual void *TryAllocate(std::size_t size, std::size_t align, int subAllocator) = 0;
+        virtual ~sysMemAllocator() = 0;
+        virtual void SetQuitOnFail(bool quitOnFail) = 0;
+        virtual void *Allocate(std::size_t size, std::size_t align, int heapIndex) = 0;
+        virtual void *TryAllocate(std::size_t size, std::size_t align, int heapIndex) = 0;
         virtual void Free(void *pointer) = 0;
-        virtual void TryFree(void *pointer) = 0;
+        virtual void TryFree(void *ptr) = 0;
         virtual void Resize(void *pointer, std::size_t size) = 0;
-        virtual sysMemAllocator *GetAllocator(int allocator) const = 0;
-        virtual sysMemAllocator *GetAllocator(int allocator) = 0;
-        virtual sysMemAllocator *GetPointerOwner(void *pointer) = 0;
-        virtual std::size_t GetSize(void *pointer) const = 0;
-        virtual std::size_t GetMemoryUsed(int memoryBucket) = 0;
+        virtual sysMemAllocator *GetAllocator(int heapIndex) const = 0;
+        virtual sysMemAllocator *GetAllocator(int heapIndex) = 0;
+        virtual sysMemAllocator *GetPointerOwner(void *ptr) = 0;
+        virtual std::size_t GetSize(void *ptr) const = 0;
+        virtual std::size_t GetMemoryUsed(int bucket) = 0;
         virtual std::size_t GetMemoryAvailable() = 0;
     };
 }
@@ -39,7 +38,7 @@ namespace rage
         sysMemAllocator *m_allocator3; // 0xC8 - Same as 0xB8
         uint32_t m_console_smth; // 0xD0
         char gapD4[188];
-        uint64_t m_unk; // 0x190
+        uint64_t * m_resource; // 0x190 // datResource
 
 #if _WIN32
         static tlsContext* get()
