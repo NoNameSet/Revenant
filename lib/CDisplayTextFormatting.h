@@ -16,6 +16,9 @@ public:
     bool m_bDropShadow;
     bool m_bOutline;
     char pad_0020[8];
+
+    inline static CDisplayTextFormatting* CScriptHud__ms_FormattingForNextDisplayText;
+    static void InitialisePatterns();
 };
 
 static_assert(sizeof(CDisplayTextFormatting) == 0x28);
