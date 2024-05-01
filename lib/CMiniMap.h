@@ -3,11 +3,13 @@
 
 #pragma once
 
+#include "vector.h"
+
 class CMiniMap
 {
 public:
-    static Vector2* GetCurrentMiniMapPosition(Vector2* position);
-    static Vector2* GetCurrentMiniMapSize(Vector2* size);
+    static rage::fvector2* GetCurrentMiniMapPosition(rage::fvector2* position);
+    static rage::fvector2* GetCurrentMiniMapSize(rage::fvector2* size);
 
     static void InitialisePatterns();
 };

@@ -1,7 +1,7 @@
 #include "CMiniMap.h"
 
-Vector2* (*CMiniMap__GetCurrentMiniMapPosition) (Vector2*);
-Vector2* (*CMiniMap__GetCurrentMiniMapSize) (Vector2*);
+rage::fvector2* (*CMiniMap__GetCurrentMiniMapPosition) (rage::fvector2*);
+rage::fvector2* (*CMiniMap__GetCurrentMiniMapSize) (rage::fvector2*);
 
 void CMiniMap::InitialisePatterns()
 {
@@ -16,12 +16,12 @@ void CMiniMap::InitialisePatterns()
                     CMiniMap__GetCurrentMiniMapSize);
 }
 
-Vector2 *CMiniMap::GetCurrentMiniMapPosition(Vector2 *position)
+rage::fvector2 *CMiniMap::GetCurrentMiniMapPosition(rage::fvector2 *position)
 {
     return CMiniMap__GetCurrentMiniMapPosition(position);
 }
 
-Vector2 *CMiniMap::GetCurrentMiniMapSize(Vector2 *size)
+rage::fvector2 *CMiniMap::GetCurrentMiniMapSize(rage::fvector2 *size)
 {
     return CMiniMap__GetCurrentMiniMapSize(size);
 }
