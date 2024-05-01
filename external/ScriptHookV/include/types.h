@@ -24,7 +24,7 @@ using INTERIOR_INSTANCE_INDEX = int;
 using OBJECT_INDEX = ScrHandle;
 using PED_INDEX = ScrHandle;
 using PICKUP_INDEX = int;
-using PLAYER_INDEX = unsigned int;
+using PLAYER_INDEX = int;
 using VEHICLE_INDEX = ScrHandle;
 
 class Vector2
