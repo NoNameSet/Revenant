@@ -1,7 +1,6 @@
 #ifndef REVENANT_CTASKDATAINFO_H
 #define REVENANT_CTASKDATAINFO_H
 
-#include "rage.h"
 #include "atArray.h"
 #include "CPed.h"
 
