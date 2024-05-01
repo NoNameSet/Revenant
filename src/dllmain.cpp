@@ -2,7 +2,6 @@
 #include "ScriptManager.h"
 #include "Controllers/PickupController.h"
 #include "Controllers/PlayerController.h"
-#include "GTA/entities/Player.h"
 
 void OnScriptInit()
 {

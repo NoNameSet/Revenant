@@ -11,6 +11,7 @@
 #include "Natives.h"
 #include "CTaskDataInfo.h"
 #include "fwScriptGuid.h"
+#include "CMiniMap.h"
 
 /*******************************************************/
 std::mt19937 &
@@ -123,6 +124,7 @@ InitialiseAllComponents ()
     CPed::InitialisePatterns();
     CTaskDataInfoManager::InitialisePatterns();
     fwScriptGuid::InitialisePatterns();
+    CMiniMap::InitialisePatterns();
 
     InitialiseNatives();
 
