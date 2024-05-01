@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "CPedInventory.h"
+#include "CItemInfo.h"
 
 class CQueriableInterface
 {
@@ -26,7 +26,6 @@ public:
     bool HasHeadBlend();
     void SetBehaviorFromTaskData();
     CPedIntelligence* GetIntelligence();
-    CPedInventory* GetInventory();
 
     static void InitialisePatterns();
 };
