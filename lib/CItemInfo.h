@@ -5,12 +5,18 @@
 
 #include "atArray.h"
 #include "atRTTI.h"
+#include "fwRefAwareBase.h"
 
-class CItemInfo
+class CItemInfo : public fwRefAwareBase
 {
     DECLARE_RTTI_BASE_CLASS(CItemInfo);
 public:
+    rage::atHashValue m_Name;
+    rage::atHashValue m_Model;
+    rage::atHashValue m_Audio;
+    rage::atHashValue m_Slot;
 };
+static_assert(sizeof(CItemInfo) == 0x20);
 
 class CAmmoInfo : public CItemInfo
 {
