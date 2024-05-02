@@ -12,13 +12,14 @@ namespace revenant
     {
     public:
         explicit PickupController() = default;
-        ~PickupController() noexcept = default;
+        ~PickupController() noexcept override = default;
 
         bool IsInitialized() override;
         void Initialize() override;
         void Destroy() override;
         void Tick() override;
-    private:
+
+    public:
         bool m_Initialized {};
         int m_LastPickupCreatedAt = MISC::GET_GAME_TIMER();
         int m_LastUpdateAt = MISC::GET_GAME_TIMER();
