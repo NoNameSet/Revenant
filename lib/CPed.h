@@ -26,6 +26,7 @@ public:
     bool HasHeadBlend();
     void SetBehaviorFromTaskData();
     CPedIntelligence* GetIntelligence();
+    CPedInventory* GetInventory();
 
     static void InitialisePatterns();
 };

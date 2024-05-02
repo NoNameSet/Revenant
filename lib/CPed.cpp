@@ -38,6 +38,15 @@ CPedIntelligence *CPed::GetIntelligence()
                 .get<CPedIntelligence*>();
 }
 
+CPedInventory *CPed::GetInventory()
+{
+    static uint32_t nInventOffset =
+            *hook::get_pattern<uint32_t>("4C 8B 88 ? ? ? ? 4D 85 C9 74 56 85 DB 74 42", 3);
+
+    return *(injector::raw_ptr(this) + nInventOffset)
+            .get<CPedInventory*>();
+}
+
 CQueriableInterface *CPedIntelligence::GetQueryableInterface()
 {
     static uint32_t nQueryableInterfaceOffset =
