@@ -20,7 +20,10 @@ namespace revenant
         for (auto&& prop : m_Pickups)
         {
             if (prop.IsValid())
+            {
+                prop.SetAsMissionEntity();
                 prop.Delete();
+            }
         }
     }
 
@@ -46,6 +49,7 @@ namespace revenant
                     if (distance >= PICKUP_DISPOSE_DISTANCE)
                     {
                         m_Pickups.erase(m_Pickups.begin() + i);
+                        prop.SetAsMissionEntity();
                         prop.Delete();
                     }
                 }
@@ -59,6 +63,7 @@ namespace revenant
 
                 Vector3 position = ENTITY::GET_ENTITY_COORDS(PLAYER::PLAYER_PED_ID(), false).Around(5.0f);
                 Prop prop = Prop("v_ret_gc_ammo3", position);
+                prop.SetAsMissionEntity();
                 prop.PlaceOnGroundProperly();
                 m_Pickups.push_back(prop);
             }

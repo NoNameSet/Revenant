@@ -84,6 +84,7 @@ namespace revenant
 
         [[nodiscard]] uintptr_t GetMemoryAddress() const;
 
+        void SetAsMissionEntity() const;
         void SetMaxHealth(int value) const;
         void SetHealth(int value) const;
         void AttachTo(const Entity& entity, int boneId, const Vector3& offset, const Vector3& rotation, bool detachWhenDead = false, bool detachWhenRagdoll = false, bool activeCollisions = false, bool useBasicAttachIfPed = false, EULER_ROT_ORDER rotationOrder = EULER_YXZ, bool attachOffsetIsRelative = true, bool markAsNoLongerNeededWhenDetached = false) const;

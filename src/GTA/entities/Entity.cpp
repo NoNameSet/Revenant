@@ -321,6 +321,11 @@ namespace revenant
         return fwScriptGuid::GetBaseFromGuid(this->handle);
     }
 
+    void Entity::SetAsMissionEntity() const
+    {
+        ENTITY::SET_ENTITY_AS_MISSION_ENTITY(this->handle, true, true);
+    }
+
     void Entity::SetMaxHealth(int value) const
     {
         ENTITY::SET_ENTITY_MAX_HEALTH(this->handle, value);

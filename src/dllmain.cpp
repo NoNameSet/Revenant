@@ -30,16 +30,29 @@ void OnScriptInit()
     }
 }
 
-bool __stdcall DllMain(HINSTANCE hInstance, DWORD reason, LPVOID reserved)
+void OnScriptAbort()
 {
     using namespace revenant;
 
+    for (auto&& prop : g_PickupController->m_Pickups)
+    {
+        if (prop.IsValid())
+        {
+            prop.SetAsMissionEntity();
+            prop.Delete();
+        }
+    }
+}
+
+bool __stdcall DllMain(HINSTANCE hInstance, DWORD reason, LPVOID reserved)
+{
     switch (reason)
     {
         case DLL_PROCESS_ATTACH:
             scriptRegister(hInstance, OnScriptInit);
             break;
         case DLL_PROCESS_DETACH:
+            OnScriptAbort();
             scriptUnregister(hInstance);
             break;
     }
