@@ -7,6 +7,13 @@
 #include "atRTTI.h"
 #include "fwRefAwareBase.h"
 
+class CPed;
+
+class CWeaponObserver : public fwRefAwareBase
+{
+public:
+};
+
 class CItemInfo : public fwRefAwareBase
 {
     DECLARE_RTTI_BASE_CLASS(CItemInfo);
@@ -45,6 +52,12 @@ public:
 class CWeaponItem : public CInventoryItem
 {
 public:
+
+    struct sComponent
+    {
+
+    };
+
     uint64_t m_pComponents;
     uint64_t m_pAssetRequesterAnim;
     uint64_t m_pAssetRequesterComponent;
@@ -84,5 +97,16 @@ public:
     bool m_bUsingInfiniteAmmo	: 1;
     bool m_bUsingInfiniteClips	: 1;
 };
+
+class CPedInventory : CWeaponObserver
+{
+public:
+    CPed* m_pPed;
+    CWeaponItemRepository m_weaponRepository;
+    CAmmoItemRepository m_ammoRepository;
+    uint32_t m_uCachedRechargeTime;
+    uint32_t m_uCachedWeaponState;
+};
+static_assert(sizeof(CPedInventory) == 0x88);
 
 #endif //REVENANT_CITEMINFO_H
