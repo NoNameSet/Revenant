@@ -12,6 +12,7 @@
 #include "CTaskDataInfo.h"
 #include "fwScriptGuid.h"
 #include "CMiniMap.h"
+#include "fwDecorator.h"
 
 /*******************************************************/
 std::mt19937 &
@@ -125,6 +126,7 @@ InitialiseAllComponents ()
     CTaskDataInfoManager::InitialisePatterns();
     fwScriptGuid::InitialisePatterns();
     CMiniMap::InitialisePatterns();
+    fwDecorator::InitialisePatterns();
 
     InitialiseNatives();
 

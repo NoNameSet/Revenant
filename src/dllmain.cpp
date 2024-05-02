@@ -2,6 +2,7 @@
 #include "ScriptManager.h"
 #include "Controllers/PickupController.h"
 #include "Controllers/PlayerController.h"
+#include "fwDecorator.h"
 
 void OnScriptInit()
 {
@@ -36,10 +37,15 @@ void OnScriptAbort()
 
     for (auto&& prop : g_PickupController->m_Pickups)
     {
-        if (prop.IsValid())
+        if (prop.first.IsValid())
         {
-            prop.SetAsMissionEntity();
-            prop.Delete();
+            prop.first.SetAsMissionEntity();
+            prop.first.Delete();
+        }
+
+        if (prop.second.Exists())
+        {
+            prop.second.Delete();
         }
     }
 }
