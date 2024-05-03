@@ -6,7 +6,6 @@ namespace revenant
     {
         try
         {
-            m_FilePath.append(std::getenv("appdata"));
             m_FilePath.append(REVENANT_NAME);
             if (!fs::exists(m_FilePath))
                 fs::create_directory(m_FilePath);
@@ -59,7 +58,7 @@ namespace revenant
         auto tm = std::localtime(&time);
 
         char prefix[64] = {};
-        std::snprintf(prefix, sizeof(prefix) - 1, "[%02d:%02d:%02d] [%s] ", tm->tm_hour, tm->tm_min, tm->tm_sec, type);
+        std::snprintf(prefix, sizeof(prefix) - 1, "[%02d-%02d-%04d] [%02d:%02d:%02d] [%s] ", tm->tm_mday, tm->tm_mon + 1, tm->tm_year + 1900, tm->tm_hour, tm->tm_min, tm->tm_sec, type);
 
         std::size_t messageLength = std::vsnprintf(nullptr, 0, format, args) + 1;
         auto messageBuffer = std::make_unique<char[]>(messageLength);
