@@ -179,6 +179,11 @@ public:
     {
         return *this + (RandomXY() * distance);
     }
+
+    float ToHeading() const
+    {
+        return (float)((std::atan2(x, -y) + std::numbers::pi) * (180 / std::numbers::pi));
+    }
 };
 
 class Vector4
@@ -208,16 +213,4 @@ public:
     Vector4& operator /=(float rhs) { (*this) = (*this) / rhs; return (*this); }
 
     alignas(8) float x, y, z, w;
-};
-
-class RGBA
-{
-public:
-    RGBA() {}
-    RGBA(int r, int g, int b, int a) : R(r), G(g), B(b), A(a) {}
-
-    int R;
-    int G;
-    int B;
-    int A;
 };
