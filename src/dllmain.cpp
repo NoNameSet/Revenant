@@ -2,7 +2,6 @@
 #include "ScriptManager.h"
 #include "Controllers/PickupController.h"
 #include "Controllers/PlayerController.h"
-#include "fwDecorator.h"
 
 void OnScriptInit()
 {
@@ -35,19 +34,12 @@ void OnScriptAbort()
 {
     using namespace revenant;
 
-    for (auto&& prop : g_PickupController->m_Pickups)
-    {
-        if (prop.first.IsValid())
-        {
-            prop.first.SetAsMissionEntity();
-            prop.first.Delete();
-        }
+    g_ScriptManager.reset();
+    g_PickupController.reset();
+    g_PlayerController.reset();
 
-        if (prop.second.Exists())
-        {
-            prop.second.Delete();
-        }
-    }
+    g_Logger->Info("Revenant has been terminated.");
+    g_Logger.reset();
 }
 
 bool __stdcall DllMain(HINSTANCE hInstance, DWORD reason, LPVOID reserved)
