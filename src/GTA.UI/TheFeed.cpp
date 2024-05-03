@@ -42,9 +42,9 @@ namespace revenant
         HUD::THEFEED_SET_BACKGROUND_COLOR_FOR_NEXT_POST(static_cast<int>(color));
     }
 
-    void TheFeed::SetColor(RGBA color)
+    void TheFeed::SetColor(rage::Color32 color)
     {
-        HUD::THEFEED_SET_RGBA_PARAMETER_FOR_NEXT_MESSAGE(color.R, color.G, color.B, color.A);
+        HUD::THEFEED_SET_RGBA_PARAMETER_FOR_NEXT_MESSAGE(color.GetRed(), color.GetGreen(), color.GetBlue(), color.GetAlpha());
     }
 
     void TheFeed::ResetAll()

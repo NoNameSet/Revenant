@@ -3,6 +3,8 @@
 
 #pragma once
 
+#include "color32.h"
+
 namespace revenant
 {
     class Entity;
@@ -39,14 +41,14 @@ namespace revenant
         void SetSprite(BLIP_SPRITE sprite) const;
         void SetName(const std::string& name) const;
         void SetRoute(bool enabled) const;
-        void SetRouteColor(RGBA color) const;
+        void SetRouteColor(rage::Color32 color) const;
         void SetAlpha(int alpha) const;
         void SetRotation(int value) const;
         void SetFlashes(bool toggle) const;
         void SetFlashTimer(int duration) const;
         void SetFlashInterval(int interval) const;
-        void SetColor(RGBA color) const;
-        void SetSecondaryColor(RGBA color) const;
+        void SetColor(rage::Color32 color) const;
+        void SetSecondaryColor(rage::Color32 color) const;
         void SetHiddenOnLegend(bool toggle) const;
         void SetShortRange(bool toggle) const;
         void SetScale(float scale) const;

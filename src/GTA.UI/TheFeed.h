@@ -1,6 +1,10 @@
 #ifndef REVENANT_THEFEED_H
 #define REVENANT_THEFEED_H
 
+#pragma once
+
+#include "color32.h"
+
 namespace revenant
 {
     class TheFeed
@@ -15,7 +19,7 @@ namespace revenant
         static void Remove(int32_t handle);
 
         static void SetColor(HUD_COLOURS color);
-        static void SetColor(RGBA color);
+        static void SetColor(rage::Color32 color);
         static void ResetAll();
 
         static int Post(const std::string& text, bool isImportant = true, bool cacheMessage = true);

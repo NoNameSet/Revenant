@@ -115,9 +115,9 @@ namespace revenant
         HUD::SET_BLIP_ROUTE(this->handle, enabled);
     }
 
-    void Blip::SetRouteColor(RGBA color) const
+    void Blip::SetRouteColor(rage::Color32 color) const
     {
-        HUD::SET_BLIP_ROUTE_COLOUR(this->handle, (color.R << 24) + (color.G << 16) + (color.B << 8) + color.A);
+        HUD::SET_BLIP_ROUTE_COLOUR(this->handle, color.m_Color);
     }
 
     void Blip::SetAlpha(int alpha) const
@@ -145,14 +145,14 @@ namespace revenant
         HUD::SET_BLIP_FLASH_INTERVAL(this->handle, interval);
     }
 
-    void Blip::SetColor(RGBA color) const
+    void Blip::SetColor(rage::Color32 color) const
     {
-        HUD::SET_BLIP_COLOUR(this->handle, (color.R << 24) + (color.G << 16) + (color.B << 8) + color.A);
+        HUD::SET_BLIP_COLOUR(this->handle, color.GetRGBA());
     }
 
-    void Blip::SetSecondaryColor(RGBA color) const
+    void Blip::SetSecondaryColor(rage::Color32 color) const
     {
-        HUD::SET_BLIP_SECONDARY_COLOUR(this->handle, color.R, color.G, color.B);
+        HUD::SET_BLIP_SECONDARY_COLOUR(this->handle, color.GetRed(), color.GetGreen(), color.GetBlue());
     }
 
     void Blip::SetHiddenOnLegend(bool toggle) const
