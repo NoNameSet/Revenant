@@ -1,7 +1,6 @@
 #include "PickupController.h"
 #include "PlayerController.h"
 #include "../GTA.UI/Screen.h"
-#include "../GTA.UI/TheFeed.h"
 #include "../GTA/Sound.h"
 #include "../GTA/Control.h"
 #include "../GTA/entities/Player.h"
@@ -18,6 +17,8 @@ namespace revenant
     void PickupController::Initialize()
     {
         m_Initialized = true;
+
+        m_Choices.emplace_back("Ammunition", "v_ret_gc_ammo5", [](){  });
 
         *fwDecorator::decorator_commands__g_DecorRegistrationsLocked = false;
         DECORATOR::DECOR_REGISTER("bWasNotifiedOfPickup", 2);

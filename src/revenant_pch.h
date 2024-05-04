@@ -35,6 +35,7 @@
 #include <type_traits>
 #include <unordered_map>
 #include <vector>
+#include <variant>
 
 #define REVENANT_WIDE_IMPL(str) L ## str
 #define REVENANT_WIDE(str) REVENANT_WIDE_IMPL(str)

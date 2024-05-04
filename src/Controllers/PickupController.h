@@ -25,8 +25,10 @@ namespace revenant
         int m_LastPickupCreatedAt = MISC::GET_GAME_TIMER();
         std::vector<std::pair<Prop, Blip>> m_Pickups;
         const int MAX_PICKUP_COUNT = 1;
-        const float PICKUP_DISPOSE_DISTANCE = 10.0f;
+        const float PICKUP_DISPOSE_DISTANCE = 100.0f;
         const float PICKUP_COLLECT_DISTANCE = 1.8f;
+
+        std::vector<std::tuple<std::string, std::string, std::function<void()>>> m_Choices;
 
         enum eState
         {
