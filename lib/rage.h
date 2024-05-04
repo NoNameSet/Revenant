@@ -32,7 +32,7 @@ namespace rage
         bool IsNull() const								{ return m_hash == 0; }
         bool IsNotNull() const							{ return m_hash != 0; }
 
-    protected:
+    public:
         uint32_t 		m_hash;
     };
 
