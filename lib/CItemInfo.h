@@ -9,12 +9,12 @@
 
 class CPed;
 
-class CWeaponObserver : public fwRefAwareBase
+class CWeaponObserver : public rage::fwRefAwareBase
 {
 public:
 };
 
-class CItemInfo : public fwRefAwareBase
+class CItemInfo : public rage::fwRefAwareBase
 {
     DECLARE_RTTI_BASE_CLASS(CItemInfo);
 public:
@@ -35,7 +35,7 @@ class CInventoryItem
 {
 public:
     uint32_t m_uKey;
-    int64_t m_pInfo;
+    rage::fwRegdRef<CItemInfo const, rage::fwRefAwareBase> m_pInfo;
     uint32_t m_uModelHashOverride;
     int64_t m_assetRequester;
 };
