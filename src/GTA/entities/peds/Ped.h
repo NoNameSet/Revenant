@@ -6,7 +6,9 @@
 #include "../Entity.h"
 #include "../vehicles/Vehicle.h"
 #include "TaskInvoker.h"
+#include "PedInventory.h"
 #include "PedGroup.h"
+#include "CPed.h"
 
 namespace revenant
 {
@@ -74,12 +76,14 @@ namespace revenant
         [[nodiscard]] bool IsFleeing() const;
 
         TaskInvoker& GetTaskInvoker();
+        PedInventory& GetInventory();
 
         [[nodiscard]] std::unique_ptr<PedGroup> GetGroup() const;
         std::unique_ptr<Entity> GetSourceOfDeath();
         [[nodiscard]] std::unique_ptr<Vehicle> GetCurrentVehicle(bool considerEnteringAsInVehicle) const;
     protected:
         TaskInvoker taskInvoker;
+        PedInventory pedInventory;
     };
 }
 

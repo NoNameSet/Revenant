@@ -12,7 +12,7 @@ namespace revenant
         this->handle = PED::CREATE_RANDOM_PED(position.x, position.y, position.z);
     }
 
-    Ped::Ped(int32_t handle) : Entity(handle), taskInvoker(*this)
+    Ped::Ped(int32_t handle) : Entity(handle), taskInvoker(*this), pedInventory(*this)
     {
     }
 
@@ -277,6 +277,11 @@ namespace revenant
     TaskInvoker &Ped::GetTaskInvoker()
     {
         return taskInvoker;
+    }
+
+    PedInventory &Ped::GetInventory()
+    {
+        return pedInventory;
     }
 
     std::unique_ptr<PedGroup> Ped::GetGroup() const
