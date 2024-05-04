@@ -1117,11 +1117,12 @@ enum LOS_FLAGS {
 
 enum EULER_ROT_ORDER {
     EULER_XYZ = 0,
-    EULER_XZY = 1,
-    EULER_YXZ = 2,
-    EULER_YZX = 3,
-    EULER_ZXY = 4,
-    EULER_ZYX = 5,
+    EULER_XZY,
+    EULER_YXZ,
+    EULER_YZX,
+    EULER_ZXY,
+    EULER_ZYX,
+    EULER_MAX
 };
 
 enum ENTITY_TYPE {
