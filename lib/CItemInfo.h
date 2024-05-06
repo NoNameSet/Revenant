@@ -4,8 +4,10 @@
 #pragma once
 
 #include "atArray.h"
+#include "atFixedArray.h"
 #include "atRTTI.h"
 #include "fwRefAwareBase.h"
+#include "flags.h"
 
 class CPed;
 
@@ -25,11 +27,46 @@ public:
 };
 static_assert(sizeof(CItemInfo) == 0x20);
 
+class CWeaponInfo : public CItemInfo
+{
+DECLARE_RTTI_DERIVED_CLASS(CWeaponInfo, CItemInfo);
+public:
+    static const int32_t MAX_ATTACH_POINTS = 7;
+};
+
 class CAmmoInfo : public CItemInfo
 {
     DECLARE_RTTI_DERIVED_CLASS(CAmmoInfo, CItemInfo);
 public:
+    enum Flags
+    {
+        InfiniteAmmo = 0,
+        AddSmokeOnExplosion	= 1,
+        Fuse = 2,
+        FixedAfterExplosion	= 3
+    };
+
+    enum SpecialType
+    {
+        None = 0,
+        ArmorPiercing,
+        Explosive,
+        FMJ,
+        HollowPoint,
+        Incendiary,
+        Tracer
+    };
+
+    int32_t m_AmmoMax;
+    int32_t m_AmmoMax50;
+    int32_t m_AmmoMax100;
+    int32_t m_AmmoMaxMP;
+    int32_t m_AmmoMax50MP;
+    int32_t m_AmmoMax100MP;
+    rage::fwFlags8 m_AmmoFlags;
+    CAmmoInfo::SpecialType m_AmmoSpecialType;
 };
+static_assert(sizeof(CAmmoInfo) == 0x40);
 
 class CInventoryItem
 {
@@ -49,16 +86,61 @@ public:
     bool m_bIgnoreInfiniteAmmoFlag;
 };
 
+enum WeaponComponentType
+{
+    WCT_Base,
+    WCT_Clip,
+    WCT_FlashLight,
+    WCT_LaserSight,
+    WCT_ProgrammableTargeting,
+    WCT_Scope,
+    WCT_Suppressor,
+    WCT_VariantModel,
+    WCT_Group,
+};
+
+class CWeaponBoneId
+{
+public:
+    uint16_t m_BoneId;
+};
+static_assert(sizeof(CWeaponBoneId) == 0x02);
+
+class CWeaponComponentInfo : public rage::fwRefAwareBase
+{
+DECLARE_RTTI_BASE_CLASS_WITH_ID(CWeaponComponentInfo, WCT_Base);
+public:
+    rage::atHashString m_Name;
+    rage::atHashString m_Model;
+    rage::atHashString m_LocName;
+    rage::atHashString m_LocDesc;
+    CWeaponBoneId m_AttachBone;
+    int64_t* m_AccuracyModifier;
+    int64_t* m_DamageModifier;
+    int64_t* m_FallOffModifier;
+    bool m_bShownOnWheel;
+    bool m_CreateObject;
+    bool m_ApplyWeaponTint;
+    int8_t m_HudDamage;
+    int8_t m_HudSpeed;
+    int8_t m_HudCapacity;
+    int8_t m_HudAccuracy;
+    int8_t m_HudRange;
+};
+
 class CWeaponItem : public CInventoryItem
 {
 public:
-
     struct sComponent
     {
-
+        int32_t attachPoint;
+        const uint64_t* pComponentInfo;
+        bool m_bActive;
+        uint8_t m_uTintIndex;
     };
+    typedef rage::atFixedArray<sComponent, CWeaponInfo::MAX_ATTACH_POINTS> Components;
 
-    uint64_t m_pComponents;
+    Components* m_pComponents;
     uint64_t m_pAssetRequesterAnim;
     uint64_t m_pAssetRequesterComponent;
     uint64_t m_pAssetRequesterAmmo;
@@ -69,7 +151,7 @@ public:
     bool	m_bCachedWeaponTint;
     bool	m_bCanSelect;
     int32_t m_iLastAmmoInClip;
-    int64_t m_pAmmoInfoOverride;
+    CAmmoInfo* m_pAmmoInfoOverride;
     uint32_t m_uCachedWeaponState;
 };
 static_assert(sizeof(CWeaponItem) == 0x68);
