@@ -51,28 +51,28 @@
 
 #define DECLARE_RTTI_BASE_CLASS_WITH_ID(_ClassId, _Id) \
 	public: \
-		virtual bool GetIsClassId(const u32 ClassId) const { return _ClassId::GetStaticClassId() == ClassId ? true : false; } \
+		virtual bool GetIsClassId(const uint32_t ClassId) const { return _ClassId::GetStaticClassId() == ClassId ? true : false; } \
 		template<typename _ClassType> bool GetIsClass() const { return GetIsClassId(_ClassType::GetStaticClassId()); } \
 		template <typename _ClassType> _ClassType* AsClass() { return GetIsClass<_ClassType>() ? static_cast<_ClassType*>(this) : nullptr; } \
 		template <typename _ClassType> _ClassType const* AsClass() const { return GetIsClass<_ClassType>() ? static_cast<_ClassType const*>(this) : nullptr; } \
-		virtual const u32 GetClassId() const { return GetStaticClassId(); } \
-		static const u32 GetStaticClassId() { return ms_ClassId_##_ClassId; } \
+		virtual const uint32_t GetClassId() const { return GetStaticClassId(); } \
+		static const uint32_t GetStaticClassId() { return ms_ClassId_##_ClassId; } \
 		typedef _ClassId thisclass; \
 		template<typename T__> \
 		static bool RTTIExistsCheck(); \
 	private: \
-		static const u32 ms_ClassId_##_ClassId = _Id;
+		static const uint32_t ms_ClassId_##_ClassId = _Id;
 
 #define DECLARE_RTTI_DERIVED_CLASS_WITH_ID(_ClassId, _BaseClassId, _Id) \
 	public: \
-		virtual bool GetIsClassId(const u32 ClassId) const { return _ClassId::GetStaticClassId() == ClassId ? true : _BaseClassId::GetIsClassId(ClassId); } \
-		virtual const u32 GetClassId() const { return GetStaticClassId(); } \
-		static const u32 GetStaticClassId() { return ms_ClassId_##_ClassId; } \
+		virtual bool GetIsClassId(const uint32_t ClassId) const { return _ClassId::GetStaticClassId() == ClassId ? true : _BaseClassId::GetIsClassId(ClassId); } \
+		virtual const uint32_t GetClassId() const { return GetStaticClassId(); } \
+		static const uint32_t GetStaticClassId() { return ms_ClassId_##_ClassId; } \
 		typedef _ClassId thisclass; \
 		typedef _BaseClassId superclass; \
 		template<typename T__> \
 		static bool RTTIExistsCheck(); \
 	private: \
-		static const u32 ms_ClassId_##_ClassId = _Id;
+		static const uint32_t ms_ClassId_##_ClassId = _Id;
 
 #endif //REVENANT_ATRTTI_H
