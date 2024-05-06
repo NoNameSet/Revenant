@@ -3,6 +3,8 @@
 
 #include "atRTTI.h"
 
+class datResource;
+
 namespace rage
 {
     class sysMemAllocator
@@ -38,7 +40,7 @@ namespace rage
         sysMemAllocator *m_allocator3; // 0xC8 - Same as 0xB8
         uint32_t m_console_smth; // 0xD0
         char gapD4[188];
-        uint64_t * m_resource; // 0x190 // datResource
+        datResource* m_resource; // 0x190 // datResource
 
 #if _WIN32
         static tlsContext* get()
