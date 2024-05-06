@@ -26,4 +26,4 @@ W.I.P
 
 - [alexguirre](https://github.com/alexguirre) - Assisting with memory related files and classes.
 - [Parik27](https://github.com/Parik27) - For V.Rainbomizer and teaching me more about C/C++. See the license <a href="https://github.com/nonameset/Revenant/blob/master/LICENSE">here</a>.
-- [Yimura](https://github.com/Yimura) - For his extensive research on <a href="https://github.com/Yimura/GTAV-Classes">GTA5-Classes</a>.
+- [Yimura](https://github.com/Yimura) - For his extensive research on <a href="https://github.com/Yimura/GTAV-Classes">GTA5-Classes</a>. See the license <a href="https://github.com/Yimura/GTAV-Classes/blob/master/LICENSE">here</a>.
