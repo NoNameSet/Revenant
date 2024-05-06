@@ -11,4 +11,9 @@ namespace revenant
     {
         return WEAPON::IS_WEAPON_VALID(this->weaponHash);
     }
+
+    int Weapon::GetAmmo()
+    {
+        return WEAPON::GET_AMMO_IN_PED_WEAPON(this->owner->GetHandle(), this->weaponHash);
+    }
 }

@@ -14,6 +14,8 @@ namespace revenant
 
         [[nodiscard]] bool IsValid() const;
 
+        int GetAmmo();
+
     private:
         Ped* owner;
         uint32_t weaponHash;
