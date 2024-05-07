@@ -7,7 +7,6 @@ namespace rage
     class fwFlags
     {
     public:
-
         fwFlags() : m_flags(0) {}
         fwFlags(T flags) : m_flags(flags) {}
 
@@ -21,9 +20,6 @@ namespace rage
         bool IsFlagSet(T flag) const { return (m_flags & flag)!=0; }
         bool AreAllFlagsSet(T flags) const { return (m_flags & flags)==flags; }
         T GetAllFlags() const { return m_flags; }
-
-        // Operators
-        operator T() const { return m_flags; }
 
     private:
         T m_flags;

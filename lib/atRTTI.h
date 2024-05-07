@@ -5,9 +5,6 @@
 
 #include "rage.h"
 
-#define RTTI_CLASS_STRING(_ClassId) #_ClassId
-#define RTTI_CLASS_TO_STRING(_ClassId) RTTI_CLASS_STRING(_ClassId)
-
 #define DECLARE_RTTI_BASE_CLASS_WITH_HASH_TYPE(_ClassId, _HashType) \
     public: \
         virtual bool GetIsClassId(const _HashType ClassId) const { return _ClassId::GetStaticClassId() == ClassId ? true : false; } \
@@ -42,13 +39,6 @@
 
 #define DECLARE_RTTI_DERIVED_CLASS(_ClassId, _BaseClassId) DECLARE_RTTI_DERIVED_CLASS_WITH_HASH_TYPE(_ClassId, _BaseClassId, rage::atHashString)
 
-#define INSTANTIATE_RTTI_NAMESPACE_CLASS_WITH_HASH_TYPE(_NamespaceId, _ClassId, _HashId, _HashType) \
-    _HashType _NamespaceId::_ClassId::ms_ClassId_##_ClassId(RTTI_CLASS_TO_STRING(_NamespaceId::_ClassId), _HashId);\
- 	template<>\
- 	bool _NamespaceId::_ClassId::RTTIExistsCheck<_NamespaceId::_ClassId>() { return true; }
-
-#define INSTANTIATE_RTTI_NAMESPACE_CLASS(_NamespaceId, _ClassId, _HashId) INSTANTIATE_RTTI_NAMESPACE_CLASS_WITH_HASH_TYPE(_NamespaceId, _ClassId, _HashId, rage::atHashString)
-
 #define DECLARE_RTTI_BASE_CLASS_WITH_ID(_ClassId, _Id) \
 	public: \
 		virtual bool GetIsClassId(const uint32_t ClassId) const { return _ClassId::GetStaticClassId() == ClassId ? true : false; } \
@@ -58,18 +48,6 @@
 		virtual const uint32_t GetClassId() const { return GetStaticClassId(); } \
 		static const uint32_t GetStaticClassId() { return ms_ClassId_##_ClassId; } \
 		typedef _ClassId thisclass; \
-		template<typename T__> \
-		static bool RTTIExistsCheck(); \
-	private: \
-		static const uint32_t ms_ClassId_##_ClassId = _Id;
-
-#define DECLARE_RTTI_DERIVED_CLASS_WITH_ID(_ClassId, _BaseClassId, _Id) \
-	public: \
-		virtual bool GetIsClassId(const uint32_t ClassId) const { return _ClassId::GetStaticClassId() == ClassId ? true : _BaseClassId::GetIsClassId(ClassId); } \
-		virtual const uint32_t GetClassId() const { return GetStaticClassId(); } \
-		static const uint32_t GetStaticClassId() { return ms_ClassId_##_ClassId; } \
-		typedef _ClassId thisclass; \
-		typedef _BaseClassId superclass; \
 		template<typename T__> \
 		static bool RTTIExistsCheck(); \
 	private: \

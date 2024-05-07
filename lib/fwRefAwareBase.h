@@ -14,18 +14,18 @@ namespace rage
     public:
         fwKnownRefHolder(void** ppReference, fwKnownRefHolder* pNext);
 
-        void**					m_ppReference;
-        fwKnownRefHolder*		m_pNext;
+        void** m_ppReference;
+        fwKnownRefHolder* m_pNext;
     };
     static_assert(sizeof(fwKnownRefHolder) == 0x10);
 
-    template<class _Base> class fwRefAwareBaseImpl : public _Base
+    template<class T> class fwRefAwareBaseImpl : public T
     {
     protected:
         mutable fwKnownRefHolder*	m_pKnownRefHolderHead;
     private:
-        fwRefAwareBaseImpl( const fwRefAwareBaseImpl & )				{}
-        fwRefAwareBaseImpl &operator=( const fwRefAwareBaseImpl & )		{ return *this; }
+        fwRefAwareBaseImpl( const fwRefAwareBaseImpl & ) {}
+        fwRefAwareBaseImpl &operator=( const fwRefAwareBaseImpl & )	{ return *this; }
     };
 
     class fwRefAwareBase : public fwRefAwareBaseImpl<datBase>

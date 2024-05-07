@@ -26,13 +26,6 @@ namespace rage
     class atNamespacedHashStringBase
     {
     public:
-        void SetHash(const uint32_t hash)					{ m_hash = hash; }
-        uint32_t GetHash() const								{ return m_hash; }
-        void Clear()									{ m_hash = 0; }
-        bool IsNull() const								{ return m_hash == 0; }
-        bool IsNotNull() const							{ return m_hash != 0; }
-
-    public:
         uint32_t 		m_hash;
     };
 
@@ -48,17 +41,15 @@ namespace rage
     public:
         atHashValue() : Base() {}
 
-        // Define operator== and operator!= for comparing with atHashValue
-        bool operator==(const atHashValue& other) const {
+        bool operator==(const atHashValue& other) const
+        {
             return m_hash == other.m_hash;
         }
 
-        bool operator!=(const atHashValue& other) const {
+        bool operator!=(const atHashValue& other) const
+        {
             return m_hash != other.m_hash;
         }
-
-        static atHashValue Null() { return atHashValue(); }
-        static const char* TryGetString(const uint32_t hash) { return nullptr; }
     };
 
     class atHashString
@@ -66,23 +57,17 @@ namespace rage
     public:
         atHashString() : m_hash(0) {}
 
-        // Define operator== and operator!= for comparing with atHashString
-        bool operator==(const atHashString& other) const {
+        bool operator==(const atHashString& other) const
+        {
             return m_hash == other.m_hash;
         }
 
-        bool operator!=(const atHashString& other) const {
+        bool operator!=(const atHashString& other) const
+        {
             return m_hash != other.m_hash;
         }
 
-        const char* GetCStr() const { return nullptr; }
-        const char* TryGetCStr() const { return nullptr; }
-        uint32_t GetLength() const { return 0; }
-        static const char* TryGetString(const uint32_t hash) { return nullptr; }
-        static atHashStringStats GetStats() { return atHashStringStats(); }
-        static atHashString Null() { return atHashString(); }
-
-    protected:
+    public:
         uint32_t m_hash;
     };
 
@@ -91,19 +76,15 @@ namespace rage
     public:
         atLiteralHashString() : atHashString() {}
 
-        // Define operator== and operator!= for comparing with atLiteralHashString
-        bool operator==(const atLiteralHashString& other) const {
+        bool operator==(const atLiteralHashString& other) const
+        {
             return m_hash == other.m_hash;
         }
 
-        bool operator!=(const atLiteralHashString& other) const {
+        bool operator!=(const atLiteralHashString& other) const
+        {
             return m_hash != other.m_hash;
         }
-
-        // Dummy implementations of other member functions
-        explicit atLiteralHashString(const uint32_t hash) : atHashString() {}
-        explicit atLiteralHashString(const char* str) : atHashString() {}
-        atLiteralHashString(const char* str, const uint32_t hash) : atHashString() {}
     };
 }
 
